@@ -19,23 +19,23 @@ Installation
 
 1. Install the ``django-pgcryptoauth`` package:
 
-    pip install -e git+git@github.com:tomatohater/django-pgcryptoauth.git@master#egg=django-pgcryptoauth
+        pip install -e git+git@github.com:tomatohater/django-pgcryptoauth.git@master#egg=django-pgcryptoauth
 
 
 2. Add ``pgcryptoauth`` to your ``INSTALLED_APPS``:
 
-    INSTALLED_APPS = (
-        ...
-        'pgcryptoauth',
-        ...
-    )
+        INSTALLED_APPS = (
+            ...
+            'pgcryptoauth',
+            ...
+        )
 
 3. Add ``pgcryptoauth.hashers.PgCryptoPasswordHasher`` to PASSWORD_HASHERS in your Django settings:
 
-    PASSWORD_HASHERS = (
-        ...
-        'pgcryptoauth.hashers.PgCryptoPasswordHasher',
-    )
+        PASSWORD_HASHERS = (
+            ...
+            'pgcryptoauth.hashers.PgCryptoPasswordHasher',
+        )
 
 Note: This hasher should probably at the bottom of the list so that other hashers take priority. See https://docs.djangoproject.com/en/1.4/topics/auth/#how-django-stores-passwords
 
