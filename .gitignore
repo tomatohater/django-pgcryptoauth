@@ -6,3 +6,7 @@ dist
 
 # Installer logs
 pip-log.txt
+
+# Sphinx
+docs/Makefile
+docs/_build
