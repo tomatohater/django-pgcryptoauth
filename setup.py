@@ -10,19 +10,19 @@ def read(fname):
 README = read('README.md')
 
 setup(
-    name = "django-pgcryptoauth",
-    version = pgcryptoauth.__version__,
-    description = 'Django hasher for pgcrypto encoded passwords.',
-    long_description = README,
-    url = 'https://github.com/tomatohater/django-pgcryptoauth',
-    author = 'Drew Engelson',
-    author_email = 'drew@engelson.net',
-    license = 'BSD',
-    zip_safe = False,
-    packages = find_packages(),
-    include_package_data = True,
-    package_data = {},
-    classifiers = [
+    name='django-pgcryptoauth',
+    version=pgcryptoauth.__version__,
+    description='Django hasher for pgcrypto encoded passwords.',
+    long_description=README,
+    url='https://github.com/tomatohater/django-pgcryptoauth',
+    author='Drew Engelson',
+    author_email='drew@engelson.net',
+    license='BSD',
+    zip_safe=False,
+    packages=find_packages(),
+    include_package_data=True,
+    package_data={},
+    classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',

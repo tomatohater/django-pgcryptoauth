@@ -17,7 +17,6 @@ class PgCryptoAuthTests(TestCase):
         cursor = connection.cursor()
         cursor.execute("CREATE EXTENSION pgcrypto")
         transaction.commit_unless_managed()
-        
         self.user = User.objects.create_user(username=self.username)
         self.user.password = self.encoded
         self.user.save()
