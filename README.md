@@ -49,7 +49,7 @@ Running test cases
 Loading legacy data
 -------------------
 
-Note, the legacy pgcrypto hashed passwords look like ``$1$BFw5nhna$XeiE8c4FInYGp3oND2l9n1``. When migrating these legacy passwords, we simply need to prefix the hash with the ``pgcrypto$`` algorithm:
+Note: The legacy pgcrypto hashed passwords look like ``$1$BFw5nhna$XeiE8c4FInYGp3oND2l9n1``. When migrating these legacy passwords, we simply need to prefix the hash with the ``pgcrypto$`` algorithm:
 
     user.password = 'pgcrypto$$1$BFw5nhna$XeiE8c4FInYGp3oND2l9n1'
     user.save()
