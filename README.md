@@ -40,6 +40,12 @@ Installation
 Note: This hasher should probably at the bottom of the list so that other hashers take priority. See https://docs.djangoproject.com/en/1.4/topics/auth/#how-django-stores-passwords
 
 
+Running test cases
+------------------
+
+    python manage.py test pgcryptoauth
+
+
 Loading legacy data
 -------------------
 
