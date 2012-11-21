@@ -30,7 +30,7 @@ Installation
             ...
         )
 
-3. Add ``pgcryptoauth.hashers.PgCryptoPasswordHasher`` to PASSWORD_HASHERS in your Django settings:
+3. Add ``pgcryptoauth.hashers.PgCryptoPasswordHasher`` to ``PASSWORD_HASHERS`` in your Django settings:
 
         PASSWORD_HASHERS = (
             ...
