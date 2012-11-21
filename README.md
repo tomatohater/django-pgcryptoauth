@@ -1,7 +1,7 @@
 django-pgcryptoauth
 ===================
 
-Django hasher for pgcrypto encoded passwords.
+Django hasher for PostgreSQL pgcrypto encoded passwords.
 
 ``django-pgcryptoauth`` is a custom Django password hasher which is intended to provide authentication continuity for legacy passwords that were encrypted with the Postgres pgcrypto extension.
 
@@ -49,7 +49,7 @@ Running test cases
 Loading legacy data
 -------------------
 
-Note: The legacy pgcrypto hashed passwords look like ``$1$BFw5nhna$XeiE8c4FInYGp3oND2l9n1``. When migrating these legacy passwords, we simply need to prefix the hash with the ``pgcrypto$`` algorithm:
+Note: Legacy pgcrypto hashed passwords look like ``$1$BFw5nhna$XeiE8c4FInYGp3oND2l9n1``. When migrating these passwords, we simply need to prefix the hash with the ``pgcrypto$`` algorithm:
 
     user.password = 'pgcrypto$$1$BFw5nhna$XeiE8c4FInYGp3oND2l9n1'
     user.save()
