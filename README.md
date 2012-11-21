@@ -8,53 +8,7 @@ Django hasher for PostgreSQL pgcrypto encoded passwords.
 Since we don't have access to the cleartext passwords, we instead just make Django understand and handle the legacy algorithm. When a user successfully logs in, Django will automatically upgrade the password to the preferred algorithm.
 
 
-Dependencies
-------------
+Read The Docs
+-------------
 
-Of course, you will need to be using a PostgreSQL database with the [pgcrypto](http://www.postgresql.org/docs/9.1/static/pgcrypto.html) extension installed.
-
-
-Installation
-------------
-
-1. Install the ``django-pgcryptoauth`` package:
-
-        pip install -e git+git@github.com:tomatohater/django-pgcryptoauth.git@master#egg=django-pgcryptoauth
-
-
-2. Add ``pgcryptoauth`` to your ``INSTALLED_APPS``:
-
-        INSTALLED_APPS = (
-            ...
-            'pgcryptoauth',
-            ...
-        )
-
-3. Add ``pgcryptoauth.hashers.PgCryptoPasswordHasher`` to ``PASSWORD_HASHERS`` in your Django settings:
-
-        PASSWORD_HASHERS = (
-            ...
-            'pgcryptoauth.hashers.PgCryptoPasswordHasher',
-        )
-
-Note: This hasher should probably at the bottom of the list so that other hashers take priority. See https://docs.djangoproject.com/en/1.4/topics/auth/#how-django-stores-passwords
-
-
-Running test cases
-------------------
-
-    python manage.py test pgcryptoauth
-
-
-Loading legacy data
--------------------
-
-Note: Legacy pgcrypto hashed passwords look like ``$1$BFw5nhna$XeiE8c4FInYGp3oND2l9n1``. When migrating these passwords, we simply need to prefix the hash with the ``pgcrypto$`` algorithm:
-
-    user.password = 'pgcrypto$$1$BFw5nhna$XeiE8c4FInYGp3oND2l9n1'
-    user.save()
-
-If you review that users password via the Django ``auth.user`` admin, you should see:
-
-    algorithm: pgcrypto
-    hash: $1$BFw******************************************
+https://django-pgcryptoauth.readthedocs.org/en/latest/
