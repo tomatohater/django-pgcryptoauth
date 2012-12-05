@@ -25,7 +25,7 @@ Installation
 
 1. Install the ``django-pgcryptoauth`` package::
 
-        pip install -e git+git@github.com:tomatohater/django-pgcryptoauth.git@master#egg=django-pgcryptoauth
+        pip install -e git+git@github.com:tomatohater/django-pgcryptoauth.git@v0.2.1#egg=django-pgcryptoauth
 
 
 2. Add ``pgcryptoauth`` to your ``INSTALLED_APPS``::
