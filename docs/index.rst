@@ -46,6 +46,38 @@ Installation
 Note: This hasher should probably at the bottom of the list so that other hashers take priority. See https://docs.djangoproject.com/en/1.4/topics/auth/#how-django-stores-passwords
 
 
+
+Configuration
+-------------
+
+By default, `pgcryptoauth` will use your `default` database connection. However, you may instruct it to use another connection by setting  `PGCRYPTOAUTH_DATABASE` to something else in your Django settings.::
+
+    PGCRYPTOAUTH_DATABASE = 'another_database'
+
+Of course, this other connection must be a valid Postgres database with the pgcrypto extension and listed in your `DATABASES` setting::
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'my_database',
+            'USER': 'my_user',
+            'PASSWORD': 'my_pass',
+            'HOST': '127.0.0.1',
+            'PORT': '',
+        },
+        'another_database': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'another_database',
+            'USER': 'another_user',
+            'PASSWORD': 'another_pass',
+            'HOST': '127.0.0.1',
+            'PORT': '',
+        }
+    }
+
+This may be necessary if the pgcrypto extension is not (or can't be) installed on your primary database. Especially if your primary database is not PostgreSQL!
+
+
 Running test cases
 ------------------
 
