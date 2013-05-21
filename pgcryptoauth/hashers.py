@@ -33,7 +33,7 @@ class PgCryptoPasswordHasher(BasePasswordHasher):
             salt = self.salt()
 
         cursor = connections[PGCRYPTOAUTH_DATABASE].cursor()
-        cursor.execute("SELECT crypt('%s', '%s')", [password, salt))
+        cursor.execute("SELECT crypt(%s, %s)", [password, salt])
         pghash = cursor.fetchall()[0][0]
         return "%s$%s" % (self.algorithm, pghash)
 
