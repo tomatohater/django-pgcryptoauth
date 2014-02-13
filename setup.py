@@ -17,18 +17,20 @@ setup(
     url='https://github.com/tomatohater/django-pgcryptoauth',
     author='Drew Engelson',
     author_email='drew@engelson.net',
-    license='BSD',
+    license='MIT',
     zip_safe=False,
     packages=find_packages(),
     include_package_data=True,
     package_data={},
-    classifiers=[
+    classifiers = [
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'Natural Language :: English',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP',
+        'Topic :: Software Development :: Libraries :: Python Modules',
     ]
 )
