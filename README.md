@@ -3,11 +3,7 @@ django-pgcryptoauth
 
 Django hasher for PostgreSQL pgcrypto encoded passwords.
 
-[![Build Status](https://travis-ci.org/tomatohater/django-pgcryptoauth.png?branch=master)](https://travis-ci.org/tomatohater/django-pgcryptoauth)
-
-[![Coverage Status](https://coveralls.io/repos/tomatohater/django-pgcryptoauth/badge.png?branch=master)](https://coveralls.io/r/tomatohater/django-pgcryptoauth?branch=master)
-
-[![PyPI version](https://badge.fury.io/py/django-pgcryptoauth.png)](http://badge.fury.io/py/django-pgcryptoauth)
+[![Build Status](https://travis-ci.org/tomatohater/django-pgcryptoauth.png?branch=master)](https://travis-ci.org/tomatohater/django-pgcryptoauth) [![Coverage Status](https://coveralls.io/repos/tomatohater/django-pgcryptoauth/badge.png?branch=master)](https://coveralls.io/r/tomatohater/django-pgcryptoauth?branch=master) [![PyPI version](https://badge.fury.io/py/django-pgcryptoauth.png)](http://badge.fury.io/py/django-pgcryptoauth)
 
 ``django-pgcryptoauth`` is a custom Django password hasher which is intended to provide authentication continuity for legacy passwords that were encrypted with the Postgres pgcrypto extension.
 
