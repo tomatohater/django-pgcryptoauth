@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Default settings for package (overridable with Django settings)."""
+
 from django.conf import settings
 
 #

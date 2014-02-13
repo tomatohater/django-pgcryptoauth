@@ -1,0 +1,42 @@
+# Tell Travis you want a Python environment to test in
+language: python
+
+services: mongodb
+
+# List the versions of Python you'd like to test against
+python:
+#  - "2.6"
+  - "2.7"
+
+# List the versions of Django you'd like to test against
+env:
+#  - DJANGO_VERSION=1.1.4
+#  - DJANGO_VERSION=1.2.7
+#  - DJANGO_VERSION=1.3.7
+  - DJANGO_VERSION=1.4.10
+#  - DJANGO_VERSION=1.5.5
+#  - DJANGO_VERSION=1.6.1
+
+# Tell it the things it will need to install when it boots
+install: 
+  # This is a dependency of our Django test script
+  - pip install argparse --use-mirrors
+  - pip install coverage --use-mirrors
+  - pip install coveralls --use-mirrors
+
+  # Install the dependencies the app itself has
+  - pip install psycopg2 --use-mirrors
+
+  # Install whatever version of Django that's listed above
+  # Travis is currently working on
+  - pip install -q Django==$DJANGO_VERSION --use-mirrors
+
+before_script:
+  - psql -c 'create database pgcryptoauth_test;' -U postgres
+
+script: 
+#  coverage run --source=pgcryptoauth quicktest.py pgcryptoauth
+   python quicktest.py pgcryptoauth
+
+after_success:
+#  coveralls

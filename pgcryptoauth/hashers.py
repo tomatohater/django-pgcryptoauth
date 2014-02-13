@@ -1,10 +1,13 @@
+# -*- coding: utf-8 -*-
+"""A Django password hasher that leverages Postgres pgcrypto encryption."""
+
 from django.db import connections
 from django.contrib.auth.hashers import (BasePasswordHasher, mask_hash)
 from django.utils.datastructures import SortedDict
 from django.utils.crypto import constant_time_compare
 from django.utils.translation import ugettext_noop as _
 
-from settings import PGCRYPTOAUTH_DATABASE
+from .settings import PGCRYPTOAUTH_DATABASE
 
 
 class PgCryptoPasswordHasher(BasePasswordHasher):

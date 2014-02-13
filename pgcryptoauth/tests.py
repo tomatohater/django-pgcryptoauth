@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Test suite for django-pgcryptoauth."""
+
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.db import connection, transaction
@@ -7,6 +10,7 @@ from pgcryptoauth.hashers import PgCryptoPasswordHasher
 
 
 class PgCryptoAuthTests(TestCase):
+    """Test case for django-pgcryptoauth."""
     hasher = PgCryptoPasswordHasher()
     username = u'kingbuzzo'
     password = u'sY0CVj0L56'
@@ -30,6 +34,13 @@ class PgCryptoAuthTests(TestCase):
         """
         encoded = self.hasher.encode(self.password, self.pghash)
         self.assertEqual(encoded, self.encoded)
+
+    def test_encode_nosalt(self):
+        """
+        Test encoder without a salt.
+        """
+        encoded = self.hasher.encode(self.password)
+        self.assertTrue(self.hasher.verify(self.password, encoded))
 
     def test_bad_encode(self):
         """
@@ -57,3 +68,14 @@ class PgCryptoAuthTests(TestCase):
         """
         user = authenticate(username=self.username, password='bad password')
         self.assertFalse(isinstance(user, User))
+
+    def test_summary(self):
+        """
+        Test summary string generation.
+        """
+        summary = self.hasher.safe_summary(self.encoded)
+        self.assertIn('algorithm', summary)
+        self.assertIn('hash', summary)
+        self.assertEqual(summary['algorithm'], 'pgcrypto')
+        expected = self.pghash[0:6] + ('*' * (len(self.pghash)-6))
+        self.assertEqual(summary['hash'], expected)
