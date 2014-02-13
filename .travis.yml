@@ -11,7 +11,7 @@ env:
   # Note: Customizable password hashers were introduced in Django 1.4
   - DJANGO_VERSION=1.4.10
   - DJANGO_VERSION=1.5.5
-  - DJANGO_VERSION=1.6.1
+  - DJANGO_VERSION=1.6.2
 
 # Tell it the things it will need to install when it boots
 install: 
@@ -31,8 +31,7 @@ before_script:
   - psql -c 'create database pgcryptoauth_test;' -U postgres
 
 script: 
-#  coverage run --source=pgcryptoauth quicktest.py pgcryptoauth
-   python quicktest.py pgcryptoauth
+  coverage run --source=pgcryptoauth quicktest.py pgcryptoauth
 
 after_success:
-#  coveralls
+  coveralls
