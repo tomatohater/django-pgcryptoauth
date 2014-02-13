@@ -1,8 +1,6 @@
 # Tell Travis you want a Python environment to test in
 language: python
 
-services: mongodb
-
 # List the versions of Python you'd like to test against
 python:
 #  - "2.6"
