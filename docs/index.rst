@@ -52,7 +52,7 @@ Installation
             'pgcryptoauth.hashers.PgCryptoPasswordHasher',
         )
 
-Note: This hasher should probably at the bottom of the list so that other hashers take priority. See https://docs.djangoproject.com/en/1.4/topics/auth/#how-django-stores-passwords
+Note: This hasher should probably at the bottom of the list so that other hashers take priority. See https://docs.djangoproject.com/en/dev/topics/auth/passwords/
 
 
 
