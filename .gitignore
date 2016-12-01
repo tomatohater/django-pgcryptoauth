@@ -1,3 +1,4 @@
+__pycache__
 *.py[cod]
 
 # Packages
@@ -6,9 +7,5 @@ dist
 
 # Installer logs
 pip-log.txt
-
-# Sphinx
-docs/Makefile
-docs/_build
 
 .coverage
