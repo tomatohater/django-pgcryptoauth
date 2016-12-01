@@ -6,7 +6,6 @@ python:
   - "3.5"
 
 env:
-  - DJANGO_VERSION=1.7.11
   - DJANGO_VERSION=1.8.16
   - DJANGO_VERSION=1.9.11
   - DJANGO_VERSION=1.10.3
@@ -20,7 +19,7 @@ before_script:
   - psql -c 'create database pgcryptoauth_test;' -U postgres
 
 script:
-  DJANGO_SETTINGS_MODULE=tests.settings coverage run --source=pgcryptoauth runtests.py
+  coverage run --source=pgcryptoauth runtests.py
 
 after_success:
   coveralls
