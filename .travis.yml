@@ -3,18 +3,22 @@ language: python
 
 # List the versions of Python you'd like to test against
 python:
-  - "2.6"
   - "2.7"
 
 # List the versions of Django you'd like to test against
 env:
   # Note: Customizable password hashers were introduced in Django 1.4
-  - DJANGO_VERSION=1.4.10
-  - DJANGO_VERSION=1.5.5
-  - DJANGO_VERSION=1.6.2
+  - DJANGO_VERSION=1.4.22
+  - DJANGO_VERSION=1.5.12
+  - DJANGO_VERSION=1.6.11
+  - DJANGO_VERSION=1.7.11
+  - DJANGO_VERSION=1.8.16
+  - DJANGO_VERSION=1.9.11
+  - DJANGO_VERSION=1.10.3
+
 
 # Tell it the things it will need to install when it boots
-install: 
+install:
   # This is a dependency of our Django test script
   - pip install argparse --use-mirrors
   - pip install coverage --use-mirrors
@@ -30,8 +34,8 @@ install:
 before_script:
   - psql -c 'create database pgcryptoauth_test;' -U postgres
 
-script: 
-  coverage run --source=pgcryptoauth quicktest.py pgcryptoauth
+script:
+  coverage run --source=pgcryptoauth runtests.py
 
 after_success:
   coveralls

@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """A Django password hasher that leverages Postgres pgcrypto encryption."""
 
+from collections import OrderedDict
+
 from django.db import connections
 from django.contrib.auth.hashers import (BasePasswordHasher, mask_hash)
-from django.utils.datastructures import SortedDict
 from django.utils.crypto import constant_time_compare
 from django.utils.translation import ugettext_noop as _
 
@@ -49,7 +50,7 @@ class PgCryptoPasswordHasher(BasePasswordHasher):
     def safe_summary(self, encoded):
         algorithm, pghash = encoded.split('$', 1)
         assert algorithm == self.algorithm
-        return SortedDict([
+        return OrderedDict([
             (_('algorithm'), algorithm),
             (_('hash'), mask_hash(pghash)),
         ])
