@@ -110,3 +110,9 @@ If you review that users password via the Django ``auth.user`` admin, you should
 
 
 ..  _pgcrypto: http://www.postgresql.org/docs/9.1/static/pgcrypto.html
+
+
+History
+-------
+
+v0.3 - Adds Python 3 support, supports Django 1.8+.
