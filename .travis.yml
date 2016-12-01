@@ -13,7 +13,6 @@ env:
   - DJANGO_VERSION=1.9.11
   - DJANGO_VERSION=1.10.3
 
-to install when it boots
 install:
   - pip install coverage coveralls
   - pip install psycopg2
