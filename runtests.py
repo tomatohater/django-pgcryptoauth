@@ -10,7 +10,8 @@ DIRNAME = os.path.dirname(__file__)
 
 if __name__ == "__main__":
     os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.settings'
-    django.setup()
+    if 'setup' in django:
+        django.setup()
     TestRunner = get_runner(settings)
     test_runner = TestRunner()
     failures = test_runner.run_tests(["tests"])
