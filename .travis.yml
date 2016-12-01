@@ -2,12 +2,10 @@ language: python
 
 python:
   - "2.7"
+  - "3.4"
+  - "3.5"
 
 env:
-  # Note: Customizable password hashers were introduced in Django 1.4
-  - DJANGO_VERSION=1.4.22
-  - DJANGO_VERSION=1.5.12
-  - DJANGO_VERSION=1.6.11
   - DJANGO_VERSION=1.7.11
   - DJANGO_VERSION=1.8.16
   - DJANGO_VERSION=1.9.11
