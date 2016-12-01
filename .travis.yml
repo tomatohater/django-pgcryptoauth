@@ -12,6 +12,7 @@ env:
   - DJANGO_VERSION=1.8.16
   - DJANGO_VERSION=1.9.11
   - DJANGO_VERSION=1.10.3
+  - DJANGO_SETTINGS_MODULE=tests.settings
 
 install:
   - pip install coverage coveralls
