@@ -8,7 +8,7 @@ from django.contrib.auth.hashers import (BasePasswordHasher, mask_hash)
 from django.utils.crypto import constant_time_compare
 from django.utils.translation import ugettext_noop as _
 
-from .settings import PGCRYPTOAUTH_DATABASE
+from .settings import PGCRYPTOAUTH_ALGORITHM, PGCRYPTOAUTH_DATABASE
 
 
 class PgCryptoPasswordHasher(BasePasswordHasher):
@@ -25,10 +25,10 @@ class PgCryptoPasswordHasher(BasePasswordHasher):
 
     def salt(self):
         """
-        Generates a salt via pgcrypto.gen_salt('md5').
+        Generates a salt via pgcrypto.gen_salt('algorithm').
         """
         cursor = connections[PGCRYPTOAUTH_DATABASE].cursor()
-        cursor.execute("SELECT gen_salt('md5')")
+        cursor.execute("SELECT gen_salt('%s')" % PGCRYPTOAUTH_ALGORITHM)
         return cursor.fetchall()[0][0]
 
     def encode(self, password, salt=None):

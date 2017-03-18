@@ -4,11 +4,12 @@ python:
   - "2.7"
   - "3.4"
   - "3.5"
+  - "3.6"
 
 env:
-  - DJANGO_VERSION=1.8.16
-  - DJANGO_VERSION=1.9.11
-  - DJANGO_VERSION=1.10.3
+  - DJANGO_VERSION=1.8.17
+  - DJANGO_VERSION=1.9.12
+  - DJANGO_VERSION=1.10.6
 
 install:
   - pip install coverage coveralls
